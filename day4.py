@@ -16,7 +16,7 @@ class Event:
         return self.date < other.date
 
     def get_minutes(self):
-        return int(self.date[self.date.find(' ')+1:].split(':')[1])
+        return int(self.date[self.date.find(' ') + 1:].split(':')[1])
 
 
 if __name__ == '__main__':
@@ -28,14 +28,14 @@ if __name__ == '__main__':
     with open("data.in", "r") as f:
         lines = [x.strip() for x in f.readlines()]
         for line in lines:
-            date = line[:line.find("]")+1][1:-1]
-            action = line[line.find("]")+2:].split(" ")
+            date = line[:line.find("]") + 1][1:-1]
+            action = line[line.find("]") + 2:].split(" ")
             events_list.append(Event(date, action))
     events_list.sort()
     for x in events_list:
         if 'Guard' in x.action:
             alist = []
-            for y in events_list[events_list.index(x)+1:]:
+            for y in events_list[events_list.index(x) + 1:]:
                 if 'Guard' in y.action:
                     break
                 else:
@@ -58,4 +58,4 @@ if __name__ == '__main__':
                         if m in range(a.get_minutes(), b.get_minutes()):
                             minutes_by_shift[(g, m)] += 1
     a, b = sorted(minutes_by_shift.items(), key=lambda x: x[1], reverse=True)[0]
-    print(int(a[0][1:])*int(a[1]))
+    print(int(a[0][1:]) * int(a[1]))

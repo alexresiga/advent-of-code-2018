@@ -1,4 +1,4 @@
-from collections import defaultdict, Counter
+from collections import defaultdict
 
 register = {k: 0 for k in range(4)}
 freq = defaultdict(list)
@@ -95,7 +95,6 @@ groups = zip(*(iter(content),) * 3)
 
 register[0], register[1], register[2], register[3] = [0] * 4
 for x in open('data.in').readlines():
-    
     n, aa, bb, cc = [int(u) for u in x.split(' ')]
     for d in opcodes:
         if n == d[1]:

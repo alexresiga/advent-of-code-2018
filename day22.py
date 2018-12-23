@@ -25,5 +25,4 @@ for i in range(COLS):
         maze[j][i] = region[index[j][i] % 3]
 for line in maze:
     print(line)
-
 print(sum(risk[maze[j][i]] for i in range(TARGET[0]+1) for j in range(TARGET[1]+1)))

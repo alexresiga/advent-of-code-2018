@@ -23,8 +23,8 @@
 from collections import defaultdict
 
 
-def add_task(x):
-    work_queue.append(x)
+def add_task(xx):
+    work_queue.append(xx)
 
 
 def start_work():

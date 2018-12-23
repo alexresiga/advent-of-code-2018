@@ -7,14 +7,14 @@ def remove_unit(word, letter: str):
 
 
 def full_react(word):
-    i = 0
-    while i < len(word) - 1:
-        if react(word[i], word[i + 1]):
-            word = word.replace(word[i:i + 2], "")
-            if i > 0:
-                i -= 1
+    ii = 0
+    while ii < len(word) - 1:
+        if react(word[ii], word[ii + 1]):
+            word = word.replace(word[ii:ii + 2], "")
+            if ii > 0:
+                ii -= 1
         else:
-            i += 1
+            ii += 1
     return word
 
 
@@ -29,5 +29,4 @@ with open('data.in', 'r') as f:
     for l in letters:
         tmp = polymer
         units[l] = len(full_react(remove_unit(tmp, l)))
-
     print(sorted([x for x in units.items() if x[1] != 0], key=lambda k: k[1]))
